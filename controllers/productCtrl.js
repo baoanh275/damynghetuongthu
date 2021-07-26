@@ -104,11 +104,11 @@ const productCtrl = {
             const categories = await Category.find();
             const productSoldest = await Products.find(
                 {
-                    sold : 5000
+                    sold : 6000
                 }
 
-            ).limit(8).sort({
-                sold : -1
+            ).limit(12).sort({
+                price : -1
             })
 
             var resultt = {
@@ -124,7 +124,9 @@ const productCtrl = {
                         {
                             category : `${categories[i].name}`
                         }
-                    )
+                    ).limit(8).sort({
+                        sold : -1
+                    })
                     if(result.length !== 0) result2.push(result)
                    
     
